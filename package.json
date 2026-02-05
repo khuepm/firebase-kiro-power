@@ -1,17 +1,18 @@
 {
-  "name": "@khuepm/firebase-kiro-power",
+  "name": "@kiro/firebase-power",
   "version": "1.4.9",
-  "description": "Firebase Kiro Power for interacting with Firebase services",
+  "description": "Firebase Kiro Power for interacting with Firebase services through the Model Context Protocol",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "bin": {
-    "firebase-kiro-power": "./dist/index.js"
+    "firebase-power": "./dist/index.js"
   },
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "POWER.md"
   ],
   "scripts": {
     "build": "tsc",
@@ -58,6 +59,7 @@
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.2",
     "eslint-plugin-prettier": "^5.4.0",
+    "fast-check": "^4.5.3",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.32.0",
@@ -68,7 +70,8 @@
   },
   "keywords": [
     "firebase",
-    "kiro power",
+    "kiro",
+    "kiro-power",
     "mcp",
     "model-context-protocol",
     "ai",
