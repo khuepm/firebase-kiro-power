@@ -125,7 +125,7 @@ Ask your AI client: "Please test all Firebase Power tools."
 - `MCP_HTTP_HOST`: Host for HTTP transport (defaults to `localhost`)
 - `MCP_HTTP_PATH`: Path for HTTP transport (defaults to `/mcp`)
 - `DEBUG_LOG_FILE`: Enable file logging:
-  - Set to `true` to log to `~/.firebase-kiro-power/debug.log`
+  - Set to `true` to log to `~/.firebase-power/debug.log`
   - Set to a file path to log to a custom location
 
 ### 3. Client Integration
@@ -276,7 +276,7 @@ If you see a Zod validation error with message "Expected object, received boolea
 To help diagnose issues, you can enable file logging:
 
 ```bash
-# Log to default location (~/.firebase-kiro-power/debug.log)
+# Log to default location (~/.firebase-power/debug.log)
 DEBUG_LOG_FILE=true npx @kiro/firebase-power
 
 # Log to a custom location
@@ -304,7 +304,7 @@ To view logs in real-time:
 
 ```bash
 # Using tail to follow the log file
-tail -f ~/.firebase-kiro-power/debug.log
+tail -f ~/.firebase-power/debug.log
 
 # Using a split terminal to capture stderr
 npm start 2>&1 | tee logs.txt

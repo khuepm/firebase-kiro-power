@@ -36,11 +36,11 @@ Add this configuration to your chosen client's settings file:
 
 ```json
 {
-    "firebase-kiro-power": {
+    "firebase-power": {
         "command": "npx",
         "args": [
             "-y",
-            "@khuepm/firebase-kiro-power"
+            "@kiro/firebase-power"
         ],
         "env": {
             "SERVICE_ACCOUNT_KEY_PATH": "/path/to/your/serviceAccountKey.json",

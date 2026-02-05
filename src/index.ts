@@ -7,7 +7,7 @@
  * It provides tools for interacting with Firebase Authentication, Firestore, and Storage
  * through a standardized interface that can be used by AI assistants and other MCP clients.
  *
- * @module firebase-kiro-power
+ * @module firebase-power
  */
 
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
