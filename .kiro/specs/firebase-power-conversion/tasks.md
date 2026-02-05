@@ -6,7 +6,7 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
 
 ## Tasks
 
-- [ ] 1. Update package.json with Kiro Power metadata
+- [x] 1. Update package.json with Kiro Power metadata
   - Update package name from "@gannonh/firebase-mcp" to "@kiro/firebase-power"
   - Update description to include "Kiro Power" designation
   - Add "kiro" and "kiro-power" to keywords array
@@ -15,49 +15,49 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Verify all dependencies and devDependencies remain unchanged
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 7.3, 8.1, 8.4, 8.5_
 
-- [ ] 1.1 Write property test for dependency preservation
+- [x] 1.1 Write property test for dependency preservation
   - **Property 9: Dependency Preservation**
   - **Validates: Requirements 1.4**
 
-- [ ] 1.2 Write unit tests for package.json updates
+- [x] 1.2 Write unit tests for package.json updates
   - Test package name is "@kiro/firebase-power"
   - Test description contains "Kiro Power"
   - Test keywords include "kiro" and "kiro-power"
   - Test POWER.md is in files array
   - _Requirements: 1.1, 1.2, 1.5_
 
-- [ ] 1.3 Git commit: Package metadata updates
+- [x] 1.3 Git commit: Package metadata updates
   - Stage package.json and test files
   - Commit: "chore: update package.json for Kiro Power conversion"
   - Push to GitHub
 
-- [ ] 2. Create POWER.md documentation file
-  - [ ] 2.1 Create POWER.md in root directory with basic structure
+- [x] 2. Create POWER.md documentation file
+  - [x] 2.1 Create POWER.md in root directory with basic structure
     - Add title: "Firebase Power"
     - Add overview section explaining Firebase Power capabilities
     - Add "What is a Kiro Power?" section
     - Add features list (Firestore, Storage, Authentication)
     - _Requirements: 2.1, 2.2_
 
-  - [ ] 2.2 Add installation section to POWER.md
+  - [x] 2.2 Add installation section to POWER.md
     - Document prerequisites (Kiro IDE, Firebase project, Node.js)
     - Add step-by-step installation instructions for Kiro IDE
     - Include Powers panel installation workflow
     - _Requirements: 2.4_
 
-  - [ ] 2.3 Add configuration section to POWER.md
+  - [x] 2.3 Add configuration section to POWER.md
     - Document required environment variables (SERVICE_ACCOUNT_KEY_PATH)
     - Document optional environment variables (FIREBASE_STORAGE_BUCKET)
     - Add Kiro IDE configuration example in JSON format
     - Add configuration examples for other MCP clients
     - _Requirements: 2.5, 3.1_
 
-  - [ ] 2.4 Git commit: POWER.md basic structure
+  - [x] 2.4 Git commit: POWER.md basic structure
     - Stage POWER.md
     - Commit: "docs: add POWER.md with overview, installation, and configuration"
     - Push to GitHub
 
-  - [ ] 2.5 Document all Firestore tools in POWER.md
+  - [x] 2.5 Document all Firestore tools in POWER.md
     - Document firestore_add_document with parameters and examples
     - Document firestore_list_documents with filtering and pagination
     - Document firestore_get_document with parameters
@@ -68,46 +68,46 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
     - Document firestore_count_documents with parameters
     - _Requirements: 2.3_
 
-  - [ ] 2.6 Document all Storage tools in POWER.md
+  - [x] 2.6 Document all Storage tools in POWER.md
     - Document storage_list_files with parameters and examples
     - Document storage_get_file_info with parameters
     - Document storage_upload with content types and examples
     - Document storage_upload_from_url with URL handling
     - _Requirements: 2.3_
 
-  - [ ] 2.7 Document all Authentication tools in POWER.md
+  - [x] 2.7 Document all Authentication tools in POWER.md
     - Document auth_get_user with identifier parameter
     - Add examples for email and UID lookup
     - _Requirements: 2.3_
 
-  - [ ] 2.8 Add usage examples and troubleshooting to POWER.md
+  - [x] 2.8 Add usage examples and troubleshooting to POWER.md
     - Add common workflow examples
     - Add troubleshooting section with common issues
     - Document Firebase emulator usage
     - Add links to Firebase Console
     - _Requirements: 2.6, 2.7_
 
-  - [ ] 2.9 Git commit: Complete POWER.md documentation
+  - [x] 2.9 Git commit: Complete POWER.md documentation
     - Stage POWER.md updates
     - Commit: "docs: complete POWER.md with all tools and troubleshooting"
     - Push to GitHub
 
-- [ ] 2.10 Write property test for documentation completeness
+- [x] 2.10 Write property test for documentation completeness
   - **Property 5: Documentation Completeness**
   - **Validates: Requirements 2.3**
 
-- [ ] 2.11 Write unit tests for POWER.md structure
+- [x] 2.11 Write unit tests for POWER.md structure
   - Test POWER.md file exists
   - Test required sections are present
   - Test all MCP tools are documented
   - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7_
 
-- [ ] 2.12 Git commit: POWER.md tests
+- [x] 2.12 Git commit: POWER.md tests
   - Stage test files
   - Commit: "test: add tests for POWER.md documentation completeness"
   - Push to GitHub
 
-- [ ] 3. Update README.md for Kiro Power
+- [x] 3. Update README.md for Kiro Power
   - Update title to "Firebase Power"
   - Add Kiro Power designation and badge
   - Add "Quick Start for Kiro IDE" section with installation steps
@@ -117,45 +117,45 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Update repository URLs if needed
   - _Requirements: 6.1, 6.2, 6.3, 6.4, 6.5, 6.6_
 
-- [ ] 3.1 Write property test for documentation section preservation
+- [x] 3.1 Write property test for documentation section preservation
   - **Property (partial): Documentation sections maintained**
   - **Validates: Requirements 6.4**
 
-- [ ] 3.2 Write unit tests for README updates
+- [x] 3.2 Write unit tests for README updates
   - Test title contains "Firebase Power"
   - Test Kiro Power section exists
   - Test link to POWER.md exists
   - Test existing sections are preserved
   - _Requirements: 6.1, 6.2, 6.6_
 
-- [ ] 3.3 Git commit: README updates
+- [x] 3.3 Git commit: README updates
   - Stage README.md and test files
   - Commit: "docs: update README for Kiro Power with installation guide"
   - Push to GitHub
 
-- [ ] 4. Update internal package name references
+- [~] 4. Update internal package name references
   - Search codebase for "@gannonh/firebase-mcp" references
   - Update any hardcoded package name strings in source code
   - Update comments and documentation strings if needed
   - Update test files with package name references
   - _Requirements: 8.1, 8.2, 5.5_
 
-- [ ] 4.1 Write property test for package name consistency
+- [~] 4.1 Write property test for package name consistency
   - **Property 1: Package Name Consistency**
   - **Validates: Requirements 1.1, 1.2, 8.1, 8.2**
 
-- [ ] 4.2 Git commit: Internal reference updates
+- [~] 4.2 Git commit: Internal reference updates
   - Stage all modified source and test files
   - Commit: "refactor: update internal package name references"
   - Push to GitHub
 
-- [ ] 5. Checkpoint - Verify documentation and package updates
+- [~] 5. Checkpoint - Verify documentation and package updates
   - Ensure all documentation files are created and complete
   - Verify package.json has correct metadata
   - Ensure all package name references are updated
   - Ask the user if questions arise
 
-- [ ] 6. Verify build process with new package name
+- [~] 6. Verify build process with new package name
   - Run TypeScript compilation: `npm run build`
   - Verify dist/ directory is created with all compiled files
   - Check that executable binary is correctly configured
@@ -163,139 +163,139 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Test that package can be installed via npx
   - _Requirements: 7.1, 7.2, 7.3, 7.4_
 
-- [ ] 6.1 Write property test for build artifact completeness
+- [~] 6.1 Write property test for build artifact completeness
   - **Property 7: Build Artifact Completeness**
   - **Validates: Requirements 7.3**
 
-- [ ] 6.2 Write unit tests for build process
+- [~] 6.2 Write unit tests for build process
   - Test TypeScript compilation succeeds
   - Test dist/ directory contains expected files
   - Test package.json bin configuration is correct
   - Test POWER.md is in distribution
   - _Requirements: 7.1, 7.2, 7.3, 7.4_
 
-- [ ] 6.3 Git commit: Build process verification
+- [~] 6.3 Git commit: Build process verification
   - Stage test files
   - Commit: "test: add build process and artifact verification tests"
   - Push to GitHub
 
 - [ ] 7. Run existing test suite to verify functionality preservation
-  - [ ] 7.1 Run all Firestore tests with emulator
+  - [~] 7.1 Run all Firestore tests with emulator
     - Execute: `npm run test:emulator`
     - Verify all Firestore operation tests pass
     - Check test coverage remains at 80%+
     - _Requirements: 4.1, 5.2, 5.3, 5.4_
 
-  - [ ] 7.2 Run all Storage tests with emulator
+  - [~] 7.2 Run all Storage tests with emulator
     - Verify storage_list_files tests pass
     - Verify storage_upload tests pass
     - Verify storage_upload_from_url tests pass
     - Verify storage_get_file_info tests pass
     - _Requirements: 4.2, 5.2_
 
-  - [ ] 7.3 Run all Authentication tests
+  - [~] 7.3 Run all Authentication tests
     - Verify auth_get_user tests pass
     - _Requirements: 4.3, 5.2_
 
-  - [ ] 7.4 Run full test suite with coverage
+  - [~] 7.4 Run full test suite with coverage
     - Execute: `npm run test:coverage:emulator`
     - Verify overall test coverage is 80%+
     - Verify no tests are broken by conversion
     - _Requirements: 5.1, 5.2, 5.3_
 
-- [ ] 7.5 Write property test for functionality preservation
+- [~] 7.5 Write property test for functionality preservation
   - **Property 2: Functionality Preservation**
   - **Validates: Requirements 4.1, 4.2, 4.3, 4.6**
 
-- [ ] 7.6 Write property test for tool interface preservation
+- [~] 7.6 Write property test for tool interface preservation
   - **Property 3: Tool Interface Preservation**
   - **Validates: Requirements 4.4, 4.5**
 
-- [ ] 7.7 Write property test for test continuity
+- [~] 7.7 Write property test for test continuity
   - **Property 4: Test Continuity**
   - **Validates: Requirements 5.1, 5.2**
 
-- [ ] 7.8 Git commit: Functionality preservation tests
+- [~] 7.8 Git commit: Functionality preservation tests
   - Stage property test files
   - Commit: "test: add property tests for functionality preservation"
   - Push to GitHub
 
 - [ ] 8. Test configuration compatibility
-  - [ ] 8.1 Create test configuration for Kiro IDE format
+  - [~] 8.1 Create test configuration for Kiro IDE format
     - Create sample Kiro configuration JSON
     - Test that server initializes with Kiro config
     - Verify environment variables are read correctly
     - _Requirements: 3.1, 3.2_
 
-  - [ ] 8.2 Test stdio transport compatibility
+  - [~] 8.2 Test stdio transport compatibility
     - Test server starts with stdio transport
     - Verify MCP protocol communication works
     - _Requirements: 3.3_
 
-  - [ ] 8.3 Test HTTP transport compatibility
+  - [~] 8.3 Test HTTP transport compatibility
     - Test server starts with HTTP transport
     - Verify HTTP endpoint responds correctly
     - _Requirements: 3.3_
 
-  - [ ] 8.4 Test error handling for missing configuration
+  - [~] 8.4 Test error handling for missing configuration
     - Test with missing SERVICE_ACCOUNT_KEY_PATH
     - Verify clear error message is displayed
     - Test with invalid service account key
     - Verify helpful error message is shown
     - _Requirements: 3.4, 3.5_
 
-- [ ] 8.5 Write property test for configuration compatibility
+- [~] 8.5 Write property test for configuration compatibility
   - **Property 6: Configuration Compatibility**
   - **Validates: Requirements 3.1, 3.2**
 
-- [ ] 8.6 Write property test for error message clarity
+- [~] 8.6 Write property test for error message clarity
   - **Property 8: Error Message Clarity**
   - **Validates: Requirements 3.4, 3.5**
 
-- [ ] 8.7 Git commit: Configuration compatibility tests
+- [~] 8.7 Git commit: Configuration compatibility tests
   - Stage configuration test files
   - Commit: "test: add configuration compatibility and error handling tests"
   - Push to GitHub
 
-- [ ] 9. Checkpoint - Ensure all tests pass
+- [~] 9. Checkpoint - Ensure all tests pass
   - Verify all existing tests pass
   - Verify all new tests pass
   - Verify test coverage is maintained
   - Ensure all tests pass, ask the user if questions arise
 
 - [ ] 10. Final integration testing
-  - [ ] 10.1 Test installation via npx
+  - [~] 10.1 Test installation via npx
     - Run: `npx @kiro/firebase-power`
     - Verify server starts correctly
     - Test with sample Firebase project
     - _Requirements: 7.2_
 
-  - [ ] 10.2 Test all MCP tools end-to-end
+  - [~] 10.2 Test all MCP tools end-to-end
     - Test Firestore operations with real Firebase project
     - Test Storage operations with file uploads
     - Test Authentication operations with user lookup
     - Verify all tools work identically to before conversion
     - _Requirements: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6_
 
-  - [ ] 10.3 Verify documentation accuracy
+  - [~] 10.3 Verify documentation accuracy
     - Follow POWER.md installation instructions
     - Test configuration examples from documentation
     - Verify all documented tools work as described
     - _Requirements: 2.3, 2.4, 2.5, 2.6, 2.7_
 
-- [ ] 10.4 Git commit: Integration test results
+- [~] 10.4 Git commit: Integration test results
   - Stage any integration test files or documentation updates
   - Commit: "test: verify end-to-end integration and documentation accuracy"
   - Push to GitHub
 
-- [ ] 11. Final checkpoint - Prepare for distribution
+- [~] 11. Final checkpoint - Prepare for distribution
   - Run final build: `npm run build`
   - Run final tests: `npm run test:coverage:emulator`
   - Verify all documentation is complete and accurate
   - Ensure package is ready for NPM publication
   - Ask the user if questions arise
 
-- [ ] 12. Final git commit and tag
+- [~] 12. Final git commit and tag
   - Stage any remaining changes
   - Commit: "chore: finalize Firebase Power conversion"
   - Create git tag: `v1.4.9-kiro-power`
