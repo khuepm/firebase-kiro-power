@@ -2,12 +2,12 @@
 
 ## Overview
 
-This implementation plan outlines the steps to convert the existing Firebase MCP server into a Kiro Power. The conversion will be done in phases, starting with package restructuring, then documentation creation, followed by testing and validation. Each task builds incrementally to ensure the conversion maintains all existing functionality while adapting to the Kiro Power format.
+This implementation plan outlines the steps to convert the existing Firebase MCP server into a Kiro Power. The conversion will be done in phases, starting with package restructuring, then documentation creation, followed by testing and validation. Each task builds incrementally to ensure the conversion maintains all existing functionality while adapting to the Kiro Power format. Git commits are distributed throughout the workflow to create a clear history of changes.
 
 ## Tasks
 
 - [ ] 1. Update package.json with Kiro Power metadata
-  - Update package name from "@khuepm/firebase-kiro-power" to "@kiro/firebase-power"
+  - Update package name from "@gannonh/firebase-mcp" to "@kiro/firebase-power"
   - Update description to include "Kiro Power" designation
   - Add "kiro" and "kiro-power" to keywords array
   - Update bin executable name to "firebase-power"
@@ -25,6 +25,11 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Test keywords include "kiro" and "kiro-power"
   - Test POWER.md is in files array
   - _Requirements: 1.1, 1.2, 1.5_
+
+- [ ] 1.3 Git commit: Package metadata updates
+  - Stage package.json and test files
+  - Commit: "chore: update package.json for Kiro Power conversion"
+  - Push to GitHub
 
 - [ ] 2. Create POWER.md documentation file
   - [ ] 2.1 Create POWER.md in root directory with basic structure
@@ -47,7 +52,12 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
     - Add configuration examples for other MCP clients
     - _Requirements: 2.5, 3.1_
 
-  - [ ] 2.4 Document all Firestore tools in POWER.md
+  - [ ] 2.4 Git commit: POWER.md basic structure
+    - Stage POWER.md
+    - Commit: "docs: add POWER.md with overview, installation, and configuration"
+    - Push to GitHub
+
+  - [ ] 2.5 Document all Firestore tools in POWER.md
     - Document firestore_add_document with parameters and examples
     - Document firestore_list_documents with filtering and pagination
     - Document firestore_get_document with parameters
@@ -58,34 +68,44 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
     - Document firestore_count_documents with parameters
     - _Requirements: 2.3_
 
-  - [ ] 2.5 Document all Storage tools in POWER.md
+  - [ ] 2.6 Document all Storage tools in POWER.md
     - Document storage_list_files with parameters and examples
     - Document storage_get_file_info with parameters
     - Document storage_upload with content types and examples
     - Document storage_upload_from_url with URL handling
     - _Requirements: 2.3_
 
-  - [ ] 2.6 Document all Authentication tools in POWER.md
+  - [ ] 2.7 Document all Authentication tools in POWER.md
     - Document auth_get_user with identifier parameter
     - Add examples for email and UID lookup
     - _Requirements: 2.3_
 
-  - [ ] 2.7 Add usage examples and troubleshooting to POWER.md
+  - [ ] 2.8 Add usage examples and troubleshooting to POWER.md
     - Add common workflow examples
     - Add troubleshooting section with common issues
     - Document Firebase emulator usage
     - Add links to Firebase Console
     - _Requirements: 2.6, 2.7_
 
-- [ ] 2.8 Write property test for documentation completeness
+  - [ ] 2.9 Git commit: Complete POWER.md documentation
+    - Stage POWER.md updates
+    - Commit: "docs: complete POWER.md with all tools and troubleshooting"
+    - Push to GitHub
+
+- [ ] 2.10 Write property test for documentation completeness
   - **Property 5: Documentation Completeness**
   - **Validates: Requirements 2.3**
 
-- [ ] 2.9 Write unit tests for POWER.md structure
+- [ ] 2.11 Write unit tests for POWER.md structure
   - Test POWER.md file exists
   - Test required sections are present
   - Test all MCP tools are documented
   - _Requirements: 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7_
+
+- [ ] 2.12 Git commit: POWER.md tests
+  - Stage test files
+  - Commit: "test: add tests for POWER.md documentation completeness"
+  - Push to GitHub
 
 - [ ] 3. Update README.md for Kiro Power
   - Update title to "Firebase Power"
@@ -108,8 +128,13 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Test existing sections are preserved
   - _Requirements: 6.1, 6.2, 6.6_
 
+- [ ] 3.3 Git commit: README updates
+  - Stage README.md and test files
+  - Commit: "docs: update README for Kiro Power with installation guide"
+  - Push to GitHub
+
 - [ ] 4. Update internal package name references
-  - Search codebase for "@khuepm/firebase-kiro-power" references
+  - Search codebase for "@gannonh/firebase-mcp" references
   - Update any hardcoded package name strings in source code
   - Update comments and documentation strings if needed
   - Update test files with package name references
@@ -118,6 +143,11 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
 - [ ] 4.1 Write property test for package name consistency
   - **Property 1: Package Name Consistency**
   - **Validates: Requirements 1.1, 1.2, 8.1, 8.2**
+
+- [ ] 4.2 Git commit: Internal reference updates
+  - Stage all modified source and test files
+  - Commit: "refactor: update internal package name references"
+  - Push to GitHub
 
 - [ ] 5. Checkpoint - Verify documentation and package updates
   - Ensure all documentation files are created and complete
@@ -143,6 +173,11 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Test package.json bin configuration is correct
   - Test POWER.md is in distribution
   - _Requirements: 7.1, 7.2, 7.3, 7.4_
+
+- [ ] 6.3 Git commit: Build process verification
+  - Stage test files
+  - Commit: "test: add build process and artifact verification tests"
+  - Push to GitHub
 
 - [ ] 7. Run existing test suite to verify functionality preservation
   - [ ] 7.1 Run all Firestore tests with emulator
@@ -180,6 +215,11 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - **Property 4: Test Continuity**
   - **Validates: Requirements 5.1, 5.2**
 
+- [ ] 7.8 Git commit: Functionality preservation tests
+  - Stage property test files
+  - Commit: "test: add property tests for functionality preservation"
+  - Push to GitHub
+
 - [ ] 8. Test configuration compatibility
   - [ ] 8.1 Create test configuration for Kiro IDE format
     - Create sample Kiro configuration JSON
@@ -212,6 +252,11 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - **Property 8: Error Message Clarity**
   - **Validates: Requirements 3.4, 3.5**
 
+- [ ] 8.7 Git commit: Configuration compatibility tests
+  - Stage configuration test files
+  - Commit: "test: add configuration compatibility and error handling tests"
+  - Push to GitHub
+
 - [ ] 9. Checkpoint - Ensure all tests pass
   - Verify all existing tests pass
   - Verify all new tests pass
@@ -238,6 +283,11 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
     - Verify all documented tools work as described
     - _Requirements: 2.3, 2.4, 2.5, 2.6, 2.7_
 
+- [ ] 10.4 Git commit: Integration test results
+  - Stage any integration test files or documentation updates
+  - Commit: "test: verify end-to-end integration and documentation accuracy"
+  - Push to GitHub
+
 - [ ] 11. Final checkpoint - Prepare for distribution
   - Run final build: `npm run build`
   - Run final tests: `npm run test:coverage:emulator`
@@ -245,9 +295,17 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Ensure package is ready for NPM publication
   - Ask the user if questions arise
 
+- [ ] 12. Final git commit and tag
+  - Stage any remaining changes
+  - Commit: "chore: finalize Firebase Power conversion"
+  - Create git tag: `v1.4.9-kiro-power`
+  - Push commit and tag to GitHub
+
 ## Notes
 
 - All tasks are required for comprehensive conversion with full test coverage
+- Git commits are distributed throughout the workflow to create clear change history
+- Each commit focuses on a specific aspect of the conversion
 - Each task references specific requirements for traceability
 - Checkpoints ensure incremental validation at key milestones
 - Property tests validate universal correctness properties across all inputs
