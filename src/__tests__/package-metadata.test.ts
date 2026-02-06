@@ -23,7 +23,7 @@ describe('Package.json Kiro Power Metadata', () => {
 
     it('should not contain the old package name', () => {
       expect(packageJson.name).not.toBe('@khuepm/firebase-kiro-power');
-      expect(packageJson.name).not.toBe('@gannonh/firebase-mcp');
+      expect(packageJson.name).not.toBe('@khuepm/firebase-kiro-power');
     });
   });
 

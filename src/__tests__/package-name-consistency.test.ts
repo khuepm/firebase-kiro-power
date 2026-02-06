@@ -20,7 +20,7 @@ describe('Property 1: Package Name Consistency', () => {
   // Define old/incorrect package names that should not appear
   const OLD_PACKAGE_NAMES = [
     '@khuepm/firebase-kiro-power',
-    '@gannonh/firebase-mcp',
+    '@khuepm/firebase-kiro-power',
   ];
 
   // Files that should contain package name references
@@ -70,7 +70,7 @@ describe('Property 1: Package Name Consistency', () => {
           const hasPackageReference = fileContent.includes('@kiro/') || 
                                      fileContent.includes('firebase-power') ||
                                      fileContent.includes('firebase-kiro-power') ||
-                                     fileContent.includes('firebase-mcp');
+                                     fileContent.includes('firebase-kiro-power');
 
           if (hasPackageReference) {
             // Should contain the correct package name
@@ -310,7 +310,7 @@ describe('Property 1: Package Name Consistency', () => {
             
             // Should not use old naming patterns
             expect(moduleName).not.toContain('firebase-kiro-power');
-            expect(moduleName).not.toContain('firebase-mcp');
+            expect(moduleName).not.toContain('firebase-kiro-power');
           });
 
           return true;

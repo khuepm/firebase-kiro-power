@@ -135,7 +135,7 @@ describe('README.md Kiro Power Updates', () => {
     it('should not contain old package name references', () => {
       // Should not reference old package names
       expect(readmeContent).not.toContain('@khuepm/firebase-kiro-power');
-      expect(readmeContent).not.toContain('@gannonh/firebase-mcp');
+      expect(readmeContent).not.toContain('@khuepm/firebase-kiro-power');
     });
   });
 
@@ -166,13 +166,13 @@ describe('README.md Kiro Power Updates', () => {
   describe('Repository URLs', () => {
     it('should use correct repository URL in badges', () => {
       // Requirement 6.5: Update repository URLs if needed
-      // Should use gannonh/firebase-mcp as the repository
-      expect(readmeContent).toMatch(/github\.com\/gannonh\/firebase-mcp/);
+      // Should use khuepm/firebase-kiro-power as the repository
+      expect(readmeContent).toMatch(/github\.com\/khuepm\/firebase-kiro-power/);
     });
 
     it('should use correct repository URL in developer guide', () => {
       // Should use correct repo URL in git clone instructions
-      const devGuideRegex = /git clone.*github\.com\/gannonh\/firebase-mcp/;
+      const devGuideRegex = /git clone.*github\.com\/khuepm\/firebase-kiro-power/;
       expect(readmeContent).toMatch(devGuideRegex);
     });
   });

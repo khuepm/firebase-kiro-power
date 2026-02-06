@@ -4,11 +4,7 @@
 
 ![Project Logo](./assets/logo.png)
 
-<a href="https://glama.ai/mcp/servers/x4i8z2xmrq">
-  <img width="380" height="200" src="https://glama.ai/mcp/servers/x4i8z2xmrq/badge" alt="Firebase MCP server" />
-</a>
-
-[![Firebase Tests CI](https://github.com/gannonh/firebase-mcp/actions/workflows/tests.yml/badge.svg)](https://github.com/gannonh/firebase-mcp/actions/workflows/tests.yml)
+[![Firebase Tests CI](https://github.com/khuepm/firebase-kiro-power/actions/workflows/tests.yml/badge.svg)](https://github.com/khuepm/firebase-kiro-power/actions/workflows/tests.yml)
 
 ## Overview
 
@@ -175,8 +171,8 @@ For detailed configuration options and troubleshooting, see **[POWER.md](./POWER
 ### Installation & Building
 
 ```bash
-git clone https://github.com/gannonh/firebase-mcp
-cd firebase-mcp
+git clone https://github.com/khuepm/firebase-kiro-power
+cd firebase-kiro-power
 npm install
 npm run build
 ```

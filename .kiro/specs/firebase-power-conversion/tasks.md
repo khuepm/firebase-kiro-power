@@ -7,7 +7,7 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
 ## Tasks
 
 - [x] 1. Update package.json with Kiro Power metadata
-  - Update package name from "@gannonh/firebase-mcp" to "@kiro/firebase-power"
+  - Update package name from "@khuepm/firebase-kiro-power" to "@kiro/firebase-power"
   - Update description to include "Kiro Power" designation
   - Add "kiro" and "kiro-power" to keywords array
   - Update bin executable name to "firebase-power"
@@ -133,29 +133,29 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Commit: "docs: update README for Kiro Power with installation guide"
   - Push to GitHub
 
-- [~] 4. Update internal package name references
-  - Search codebase for "@gannonh/firebase-mcp" references
+- [x] 4. Update internal package name references
+  - Search codebase for "@khuepm/firebase-kiro-power" references
   - Update any hardcoded package name strings in source code
   - Update comments and documentation strings if needed
   - Update test files with package name references
   - _Requirements: 8.1, 8.2, 5.5_
 
-- [~] 4.1 Write property test for package name consistency
+- [x] 4.1 Write property test for package name consistency
   - **Property 1: Package Name Consistency**
   - **Validates: Requirements 1.1, 1.2, 8.1, 8.2**
 
-- [~] 4.2 Git commit: Internal reference updates
+- [x] 4.2 Git commit: Internal reference updates
   - Stage all modified source and test files
   - Commit: "refactor: update internal package name references"
   - Push to GitHub
 
-- [~] 5. Checkpoint - Verify documentation and package updates
+- [x] 5. Checkpoint - Verify documentation and package updates
   - Ensure all documentation files are created and complete
   - Verify package.json has correct metadata
   - Ensure all package name references are updated
   - Ask the user if questions arise
 
-- [~] 6. Verify build process with new package name
+- [x] 6. Verify build process with new package name
   - Run TypeScript compilation: `npm run build`
   - Verify dist/ directory is created with all compiled files
   - Check that executable binary is correctly configured
@@ -163,24 +163,24 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
   - Test that package can be installed via npx
   - _Requirements: 7.1, 7.2, 7.3, 7.4_
 
-- [~] 6.1 Write property test for build artifact completeness
+- [x] 6.1 Write property test for build artifact completeness
   - **Property 7: Build Artifact Completeness**
   - **Validates: Requirements 7.3**
 
-- [~] 6.2 Write unit tests for build process
+- [x] 6.2 Write unit tests for build process
   - Test TypeScript compilation succeeds
   - Test dist/ directory contains expected files
   - Test package.json bin configuration is correct
   - Test POWER.md is in distribution
   - _Requirements: 7.1, 7.2, 7.3, 7.4_
 
-- [~] 6.3 Git commit: Build process verification
+- [x] 6.3 Git commit: Build process verification
   - Stage test files
   - Commit: "test: add build process and artifact verification tests"
   - Push to GitHub
 
 - [ ] 7. Run existing test suite to verify functionality preservation
-  - [~] 7.1 Run all Firestore tests with emulator
+  - [-] 7.1 Run all Firestore tests with emulator
     - Execute: `npm run test:emulator`
     - Verify all Firestore operation tests pass
     - Check test coverage remains at 80%+
@@ -203,31 +203,31 @@ This implementation plan outlines the steps to convert the existing Firebase MCP
     - Verify no tests are broken by conversion
     - _Requirements: 5.1, 5.2, 5.3_
 
-- [~] 7.5 Write property test for functionality preservation
+- [x] 7.5 Write property test for functionality preservation
   - **Property 2: Functionality Preservation**
   - **Validates: Requirements 4.1, 4.2, 4.3, 4.6**
 
-- [~] 7.6 Write property test for tool interface preservation
+- [x] 7.6 Write property test for tool interface preservation
   - **Property 3: Tool Interface Preservation**
   - **Validates: Requirements 4.4, 4.5**
 
-- [~] 7.7 Write property test for test continuity
+- [x] 7.7 Write property test for test continuity
   - **Property 4: Test Continuity**
   - **Validates: Requirements 5.1, 5.2**
 
-- [~] 7.8 Git commit: Functionality preservation tests
+- [x] 7.8 Git commit: Functionality preservation tests
   - Stage property test files
   - Commit: "test: add property tests for functionality preservation"
   - Push to GitHub
 
 - [ ] 8. Test configuration compatibility
-  - [~] 8.1 Create test configuration for Kiro IDE format
+  - [x] 8.1 Create test configuration for Kiro IDE format
     - Create sample Kiro configuration JSON
     - Test that server initializes with Kiro config
     - Verify environment variables are read correctly
     - _Requirements: 3.1, 3.2_
 
-  - [~] 8.2 Test stdio transport compatibility
+  - [x] 8.2 Test stdio transport compatibility
     - Test server starts with stdio transport
     - Verify MCP protocol communication works
     - _Requirements: 3.3_
