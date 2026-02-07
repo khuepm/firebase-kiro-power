@@ -3,10 +3,10 @@ import { spawn } from 'child_process';
 import { join } from 'path';
 
 describe('Integration: Installation via npx', () => {
-  it('should start server correctly with built distribution', async () => {
+  it('should exit with error when service account key file does not exist', async () => {
     const serverPath = join(process.cwd(), 'dist', 'index.js');
     
-    // Start the server process
+    // Start the server process with non-existent service account key
     const serverProcess = spawn('node', [serverPath], {
       env: {
         ...process.env,
@@ -27,22 +27,24 @@ describe('Integration: Installation via npx', () => {
       errorOutput += data.toString();
     });
 
-    // Wait for server to initialize
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    // Kill the server
-    serverProcess.kill('SIGTERM');
-
-    // Wait for process to exit
-    await new Promise((resolve) => {
-      serverProcess.on('exit', resolve);
+    // Wait for server to process and exit
+    const exitCode = await new Promise<number | null>((resolve) => {
+      serverProcess.on('exit', (code) => resolve(code));
+      // Timeout after 3 seconds
+      setTimeout(() => {
+        serverProcess.kill('SIGTERM');
+        resolve(null);
+      }, 3000);
     });
 
     // Verify server started with correct transport
     expect(errorOutput).toContain('Using transport: stdio');
     
-    // Verify it's waiting for initialization (expected behavior with invalid key path)
-    expect(errorOutput).toContain('Waiting for Firebase to initialize');
+    // Verify it shows error about Firebase initialization failure
+    expect(errorOutput).toContain('Error initializing Firebase');
+    
+    // Verify process exited with error code
+    expect(exitCode).toBe(1);
   }, 10000);
 
   it('should show clear error message when SERVICE_ACCOUNT_KEY_PATH is missing', async () => {
@@ -63,19 +65,23 @@ describe('Integration: Installation via npx', () => {
       errorOutput += data.toString();
     });
 
-    // Wait for server to process
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    // Kill the server
-    serverProcess.kill('SIGTERM');
-
     // Wait for process to exit
-    await new Promise((resolve) => {
-      serverProcess.on('exit', resolve);
+    const exitCode = await new Promise<number | null>((resolve) => {
+      serverProcess.on('exit', (code) => resolve(code));
+      // Timeout after 3 seconds
+      setTimeout(() => {
+        serverProcess.kill('SIGTERM');
+        resolve(null);
+      }, 3000);
     });
 
-    // Verify clear error message
+    // Verify clear error messages
     expect(errorOutput).toContain('SERVICE_ACCOUNT_KEY_PATH not set');
+    expect(errorOutput).toContain('Please set SERVICE_ACCOUNT_KEY_PATH environment variable');
+    expect(errorOutput).toContain('Or use Firebase Emulator: USE_FIREBASE_EMULATOR=true');
+    
+    // Verify process exited with error code
+    expect(exitCode).toBe(1);
   }, 10000);
 
   it('should verify package.json bin configuration is correct', () => {

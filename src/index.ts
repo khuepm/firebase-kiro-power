@@ -30,7 +30,10 @@ async function initializeFirebase(): Promise<admin.app.App | null> {
     const serviceAccountPath = config.serviceAccountKeyPath;
     if (!serviceAccountPath) {
       logger.error('SERVICE_ACCOUNT_KEY_PATH not set');
-      return null;
+      logger.error('Please set SERVICE_ACCOUNT_KEY_PATH environment variable to the path of your Firebase service account key JSON file.');
+      logger.error('Example: SERVICE_ACCOUNT_KEY_PATH=/path/to/serviceAccountKey.json');
+      logger.error('Or use Firebase Emulator: USE_FIREBASE_EMULATOR=true');
+      process.exit(1); // Exit immediately instead of returning null
     }
 
     try {
@@ -66,11 +69,17 @@ async function initializeFirebase(): Promise<admin.app.App | null> {
       logger.error(
         `Error initializing Firebase: ${error instanceof Error ? error.message : 'Unknown error'}`
       );
-      return null;
+      logger.error(`Service account key path: ${serviceAccountPath}`);
+      logger.error('Please check that:');
+      logger.error('1. The file exists at the specified path');
+      logger.error('2. The file is a valid JSON file');
+      logger.error('3. The file contains valid Firebase service account credentials');
+      process.exit(1); // Exit immediately instead of returning null
     }
   } catch (error) {
     logger.error('Failed to initialize Firebase', error);
-    return null;
+    logger.error('Please check your Firebase configuration and try again.');
+    process.exit(1); // Exit immediately instead of returning null
   }
 }
 
@@ -1659,14 +1668,21 @@ class FirebaseMcpServer {
    * This method initializes the appropriate transport based on configuration.
    */
   async run(): Promise<void> {
-    // Wait for Firebase to initialize
+    // Wait for Firebase to initialize with timeout
     if (!app) {
       logger.info('Waiting for Firebase to initialize...');
-      await new Promise<void>(resolve => {
+      const timeout = 10000; // 10 seconds timeout
+      const startTime = Date.now();
+      
+      await new Promise<void>((resolve, reject) => {
         const checkInterval = setInterval(() => {
           if (app) {
             clearInterval(checkInterval);
             resolve();
+          } else if (Date.now() - startTime > timeout) {
+            clearInterval(checkInterval);
+            logger.error('Firebase initialization timeout. Please check your configuration.');
+            process.exit(1);
           }
         }, 100);
       });
