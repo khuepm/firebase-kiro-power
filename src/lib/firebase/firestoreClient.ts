@@ -5,7 +5,7 @@
  * It includes operations for listing collections, querying documents, and performing CRUD operations.
  * All functions return data in a format compatible with the MCP protocol response structure.
  *
- * @module firebase-kiro-power/firestore
+ * @module firebase-power/firestore
  */
 
 import { Timestamp } from 'firebase-admin/firestore';

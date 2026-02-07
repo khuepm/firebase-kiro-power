@@ -179,7 +179,7 @@ describe('Firebase MCP Server', () => {
         path: '/mcp',
       },
       version: '1.3.5',
-      name: 'firebase-kiro-power',
+      name: 'firebase-power',
       getConfig: vi.fn().mockReturnValue({
         serviceAccountKeyPath: '/path/to/service-account.json',
         storageBucket: 'test-bucket',
@@ -190,7 +190,7 @@ describe('Firebase MCP Server', () => {
           path: '/mcp',
         },
         version: '1.3.5',
-        name: 'firebase-kiro-power',
+        name: 'firebase-power',
       }),
       isStdioContext: vi.fn().mockReturnValue(true),
       isHttpServerRunning: vi.fn().mockResolvedValue(false),
@@ -255,7 +255,7 @@ describe('Firebase MCP Server', () => {
           path: '/mcp',
         },
         version: '1.3.5',
-        name: 'firebase-kiro-power',
+        name: 'firebase-power',
         getConfig: vi.fn().mockReturnValue({
           serviceAccountKeyPath: null,
           storageBucket: 'test-bucket',
@@ -266,7 +266,7 @@ describe('Firebase MCP Server', () => {
             path: '/mcp',
           },
           version: '1.3.5',
-          name: 'firebase-kiro-power',
+          name: 'firebase-power',
         }),
         isStdioContext: vi.fn().mockReturnValue(true),
         isHttpServerRunning: vi.fn().mockResolvedValue(false),
@@ -316,7 +316,7 @@ describe('Firebase MCP Server', () => {
           path: '/mcp',
         },
         version: '1.3.5',
-        name: 'firebase-kiro-power',
+        name: 'firebase-power',
         getConfig: vi.fn().mockReturnValue({
           serviceAccountKeyPath: '/invalid/path/service-account.json',
           storageBucket: 'test-bucket',
@@ -327,7 +327,7 @@ describe('Firebase MCP Server', () => {
             path: '/mcp',
           },
           version: '1.3.5',
-          name: 'firebase-kiro-power',
+          name: 'firebase-power',
         }),
         isStdioContext: vi.fn().mockReturnValue(true),
         isHttpServerRunning: vi.fn().mockResolvedValue(false),
@@ -379,7 +379,7 @@ describe('Firebase MCP Server', () => {
       // Verify server constructor was called with correct info
       expect(serverConstructor).toHaveBeenCalledWith(
         expect.objectContaining({
-          name: 'firebase-kiro-power',
+          name: 'firebase-power',
           version: expect.any(String),
         }),
         expect.objectContaining({

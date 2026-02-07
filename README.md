@@ -1,51 +1,75 @@
-# Firebase MCP
+# Firebase Power
 
+> A Kiro Power for Firebase services integration
 
 ![Project Logo](./assets/logo.png)
-
-<a href="https://glama.ai/mcp/servers/x4i8z2xmrq">
-  <img width="380" height="200" src="https://glama.ai/mcp/servers/x4i8z2xmrq/badge" alt="Firebase MCP server" />
-</a>
 
 [![Firebase Tests CI](https://github.com/khuepm/firebase-kiro-power/actions/workflows/tests.yml/badge.svg)](https://github.com/khuepm/firebase-kiro-power/actions/workflows/tests.yml)
 
 ## Overview
 
-**Firebase MCP** enables AI assistants to work directly with Firebase services, including:
+**Firebase Power** is a Kiro Power that enables AI assistants to work directly with Firebase services, including:
 
 - **Firestore**: Document database operations
 - **Storage**: File management with robust upload capabilities
 - **Authentication**: User management and verification
 
-The server works with MCP client applicatios such as [Claude Desktop](https://claude.ai/download), [Augment Code](https://docs.augmentcode.com/setup-augment/mcp), [VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), and [Cursor](https://www.cursor.com/).
+This Power works with Kiro IDE and other MCP client applications such as [Claude Desktop](https://claude.ai/download), [Augment Code](https://docs.augmentcode.com/setup-augment/mcp), [VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), and [Cursor](https://www.cursor.com/).
+
+For complete documentation on all features, configuration options, and detailed usage examples, see **[POWER.md](./POWER.md)**.
 
 > ⚠️ **Known Issue**: The `firestore_list_collections` tool may return a Zod validation error in the client logs. This is an erroneous validation error in the MCP SDK, as our investigation confirmed no boolean values are present in the response. Despite the error message, the query still works correctly and returns the proper collection data. This is a log-level error that doesn't affect functionality.
 
-## ⚡ Quick Start
+## ⚡ Quick Start for Kiro IDE
+
+### Prerequisites
+- Kiro IDE installed
+- Firebase project with service account credentials
+- Node.js environment
+
+### Installation Steps
+
+1. **Open Kiro IDE** and navigate to the Powers panel
+2. **Search for "Firebase Power"** in the available powers
+3. **Click Install** to add Firebase Power to your Kiro IDE
+4. **Configure environment variables**:
+   - `SERVICE_ACCOUNT_KEY_PATH`: Absolute path to your Firebase service account key JSON file
+   - `FIREBASE_STORAGE_BUCKET`: Your Firebase Storage bucket name (e.g., `your-project-id.firebasestorage.app`)
+
+5. **Get your Firebase service account key**:
+   - Go to [Firebase Console](https://console.firebase.google.com) → Project Settings → Service Accounts
+   - Click "Generate new private key"
+   - Save the JSON file securely and note its absolute path
+
+6. **Test the installation**: Ask Kiro: "Please test all Firebase MCP tools."
+
+For detailed documentation, troubleshooting, and advanced usage, see **[POWER.md](./POWER.md)**.
+
+## ⚡ Quick Start for Other MCP Clients
 
 ### Prerequisites
 - Firebase project with service account credentials
 - Node.js environment
 
-### 1. Install MCP Server
+### 1. Install Firebase Power
 
-Add the server configuration to your MCP settings file:
+Add the Firebase Power configuration to your MCP settings file:
 
 - Claude Desktop: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Augment: `~/Library/Application Support/Code/User/settings.json`
 - Cursor: `[project root]/.cursor/mcp.json`
 
-MCP Servers can be installed manually or at runtime via npx (recommended). How you install determines your configuration:
+Firebase Power can be installed manually or at runtime via npx (recommended). How you install determines your configuration:
 
 #### Configure for npx (recommended)
 
    ```json
    {
-     "firebase-kiro-power": {
+     "firebase-power": {
        "command": "npx",
        "args": [
          "-y",
-         "@khuepm/firebase-kiro-power"
+         "@kiro/firebase-power"
        ],
        "env": {
          "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
@@ -59,10 +83,10 @@ MCP Servers can be installed manually or at runtime via npx (recommended). How y
 
    ```json
    {
-     "firebase-kiro-power": {
+     "firebase-power": {
        "command": "node",
        "args": [
-         "/absolute/path/to/firebase-kiro-power/dist/index.js"
+         "/absolute/path/to/firebase-power/dist/index.js"
        ],
        "env": {
          "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
@@ -75,7 +99,7 @@ MCP Servers can be installed manually or at runtime via npx (recommended). How y
 
 ### 2. Test the Installation
 
-Ask your AI client: "Please test all Firebase MCP tools."
+Ask your AI client: "Please test all Firebase Power tools."
 
 ## 🛠️ Setup & Configuration
 
@@ -97,7 +121,7 @@ Ask your AI client: "Please test all Firebase MCP tools."
 - `MCP_HTTP_HOST`: Host for HTTP transport (defaults to `localhost`)
 - `MCP_HTTP_PATH`: Path for HTTP transport (defaults to `/mcp`)
 - `DEBUG_LOG_FILE`: Enable file logging:
-  - Set to `true` to log to `~/.firebase-kiro-power/debug.log`
+  - Set to `true` to log to `~/.firebase-power/debug.log`
   - Set to a file path to log to a custom location
 
 ### 3. Client Integration
@@ -110,6 +134,8 @@ Edit: `~/Library/Application Support/Code/User/settings.json`
 
 #### Cursor
 Edit: `[project root]/.cursor/mcp.json`
+
+For detailed configuration options and troubleshooting, see **[POWER.md](./POWER.md)**.
 
 ## 📚 API Reference
 
@@ -185,7 +211,7 @@ src/
 
 ## 🌐 HTTP Transport
 
-Firebase MCP now supports HTTP transport in addition to the default stdio transport. This allows you to run the server as a standalone HTTP service that can be accessed by multiple clients.
+Firebase Power supports HTTP transport in addition to the default stdio transport. This allows you to run the server as a standalone HTTP service that can be accessed by multiple clients.
 
 ### Running with HTTP Transport
 
@@ -196,7 +222,7 @@ To run the server with HTTP transport:
 MCP_TRANSPORT=http MCP_HTTP_PORT=3000 node dist/index.js
 
 # Or with npx
-MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @khuepm/firebase-kiro-power
+MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @kiro/firebase-power
 ```
 
 ### Client Configuration for HTTP
@@ -205,7 +231,7 @@ When using HTTP transport, configure your MCP client to connect to the HTTP endp
 
 ```json
 {
-  "firebase-kiro-power": {
+  "firebase-power": {
     "url": "http://localhost:3000/mcp"
   }
 }
@@ -246,20 +272,20 @@ If you see a Zod validation error with message "Expected object, received boolea
 To help diagnose issues, you can enable file logging:
 
 ```bash
-# Log to default location (~/.firebase-kiro-power/debug.log)
-DEBUG_LOG_FILE=true npx @khuepm/firebase-kiro-power
+# Log to default location (~/.firebase-power/debug.log)
+DEBUG_LOG_FILE=true npx @kiro/firebase-power
 
 # Log to a custom location
-DEBUG_LOG_FILE=/path/to/custom/debug.log npx @khuepm/firebase-kiro-power
+DEBUG_LOG_FILE=/path/to/custom/debug.log npx @kiro/firebase-power
 ```
 
 You can also enable logging in your MCP client configuration:
 
 ```json
 {
-  "firebase-kiro-power": {
+  "firebase-power": {
     "command": "npx",
-    "args": ["-y", "@khuepm/firebase-kiro-power"],
+    "args": ["-y", "@kiro/firebase-power"],
     "env": {
       "SERVICE_ACCOUNT_KEY_PATH": "/path/to/serviceAccountKey.json",
       "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app",
@@ -274,7 +300,7 @@ To view logs in real-time:
 
 ```bash
 # Using tail to follow the log file
-tail -f ~/.firebase-kiro-power/debug.log
+tail -f ~/.firebase-power/debug.log
 
 # Using a split terminal to capture stderr
 npm start 2>&1 | tee logs.txt

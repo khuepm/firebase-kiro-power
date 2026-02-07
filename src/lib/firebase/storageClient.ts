@@ -6,7 +6,7 @@
  * All functions handle bucket name resolution and return data in a format compatible
  * with the MCP protocol response structure.
  *
- * @module firebase-kiro-power/storage
+ * @module firebase-power/storage
  */
 
 import axios from 'axios';

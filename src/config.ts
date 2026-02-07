@@ -12,7 +12,7 @@
  * - MCP_HTTP_HOST: Host for HTTP transport (default: localhost)
  * - MCP_HTTP_PATH: Path for HTTP transport (default: /mcp)
  *
- * @module firebase-kiro-power/config
+ * @module firebase-power/config
  */
 
 // Load environment variables from .env file
@@ -130,7 +130,7 @@ export function getConfig(): ServerConfig {
       path: process.env.MCP_HTTP_PATH || '/mcp',
     },
     version: process.env.npm_package_version || '1.3.5',
-    name: 'firebase-kiro-power',
+    name: 'firebase-power',
   };
 
   return config;

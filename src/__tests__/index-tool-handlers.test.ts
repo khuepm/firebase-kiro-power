@@ -62,7 +62,7 @@ const mocks = vi.hoisted(() => {
       path: '/mcp',
     },
     version: '1.3.5',
-    name: 'firebase-kiro-power',
+    name: 'firebase-power',
   };
 
   // Create mock for fs
