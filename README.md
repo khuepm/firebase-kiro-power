@@ -69,7 +69,7 @@ Firebase Power can be installed manually or at runtime via npx (recommended). Ho
        "command": "npx",
        "args": [
          "-y",
-         "@kiro/firebase-power"
+         "@khuepm/firebase-kiro-power"
        ],
        "env": {
          "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
@@ -222,7 +222,7 @@ To run the server with HTTP transport:
 MCP_TRANSPORT=http MCP_HTTP_PORT=3000 node dist/index.js
 
 # Or with npx
-MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @kiro/firebase-power
+MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @khuepm/firebase-kiro-power
 ```
 
 ### Client Configuration for HTTP
@@ -273,10 +273,10 @@ To help diagnose issues, you can enable file logging:
 
 ```bash
 # Log to default location (~/.firebase-power/debug.log)
-DEBUG_LOG_FILE=true npx @kiro/firebase-power
+DEBUG_LOG_FILE=true npx @khuepm/firebase-kiro-power
 
 # Log to a custom location
-DEBUG_LOG_FILE=/path/to/custom/debug.log npx @kiro/firebase-power
+DEBUG_LOG_FILE=/path/to/custom/debug.log npx @khuepm/firebase-kiro-power
 ```
 
 You can also enable logging in your MCP client configuration:
@@ -285,7 +285,7 @@ You can also enable logging in your MCP client configuration:
 {
   "firebase-power": {
     "command": "npx",
-    "args": ["-y", "@kiro/firebase-power"],
+    "args": ["-y", "@khuepm/firebase-kiro-power"],
     "env": {
       "SERVICE_ACCOUNT_KEY_PATH": "/path/to/serviceAccountKey.json",
       "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app",

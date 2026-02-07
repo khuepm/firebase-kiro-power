@@ -107,7 +107,7 @@ Installing Firebase Power in Kiro IDE is straightforward using the Powers panel:
 If you're using Firebase Power with other MCP clients (Claude Desktop, VS Code, Cursor, etc.), you can install it via npx:
 
 ```bash
-npx @kiro/firebase-power
+npx @khuepm/firebase-kiro-power
 ```
 
 For detailed configuration instructions for other MCP clients, see the Configuration section below.
@@ -155,7 +155,7 @@ When using Firebase Power in Kiro IDE, the configuration is managed through the 
   "mcpServers": {
     "firebase-power": {
       "command": "npx",
-      "args": ["-y", "@kiro/firebase-power"],
+      "args": ["-y", "@khuepm/firebase-kiro-power"],
       "env": {
         "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your/serviceAccountKey.json",
         "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
@@ -183,7 +183,7 @@ For Claude Desktop, add the following to your Claude configuration file:
   "mcpServers": {
     "firebase": {
       "command": "npx",
-      "args": ["-y", "@kiro/firebase-power"],
+      "args": ["-y", "@khuepm/firebase-kiro-power"],
       "env": {
         "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your/serviceAccountKey.json",
         "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
@@ -203,7 +203,7 @@ For VS Code or Cursor with MCP extensions, add to your settings or MCP configura
     "servers": {
       "firebase": {
         "command": "npx",
-        "args": ["-y", "@kiro/firebase-power"],
+        "args": ["-y", "@khuepm/firebase-kiro-power"],
         "env": {
           "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your/serviceAccountKey.json",
           "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
@@ -223,7 +223,7 @@ For Cline (VS Code extension), add to your Cline MCP settings:
   "mcpServers": {
     "firebase": {
       "command": "npx",
-      "args": ["-y", "@kiro/firebase-power"],
+      "args": ["-y", "@khuepm/firebase-kiro-power"],
       "env": {
         "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your/serviceAccountKey.json",
         "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"
@@ -242,7 +242,7 @@ Firebase Power also supports HTTP transport for scenarios where stdio is not sui
   "mcpServers": {
     "firebase": {
       "command": "npx",
-      "args": ["-y", "@kiro/firebase-power"],
+      "args": ["-y", "@khuepm/firebase-kiro-power"],
       "env": {
         "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your/serviceAccountKey.json",
         "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app",

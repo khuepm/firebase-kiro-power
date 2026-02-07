@@ -45,7 +45,7 @@ The 5-step installation process is:
 **Status:** ✅ ACCURATE
 
 The documentation correctly provides:
-- `npx @kiro/firebase-power` command
+- `npx @khuepm/firebase-kiro-power` command
 - Reference to configuration section for other MCP clients
 
 **Verification:** The npx command matches the package.json bin configuration.

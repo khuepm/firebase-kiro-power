@@ -15,7 +15,7 @@ Verify that all MCP tools work correctly end-to-end after the Firebase Power con
 
 ## Test Environment
 
-- Package Name: `@kiro/firebase-power`
+- Package Name: `@khuepm/firebase-kiro-power`
 - Package Version: 1.4.9
 - Node.js: v16.0.0+
 - Test Framework: Vitest

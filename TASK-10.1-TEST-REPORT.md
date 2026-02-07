@@ -8,13 +8,13 @@
 ## Test Objective
 
 Verify that the Firebase Power package can be installed and run via npx:
-- Run: `npx @kiro/firebase-power`
+- Run: `npx @khuepm/firebase-kiro-power`
 - Verify server starts correctly
 - Test with sample Firebase project
 
 ## Test Environment
 
-- Package Name: `@kiro/firebase-power`
+- Package Name: `@khuepm/firebase-kiro-power`
 - Package Version: 1.4.9
 - Node.js: v16.0.0+
 - Test Method: Local npm link (simulates npx installation)
@@ -26,7 +26,7 @@ Verify that the Firebase Power package can be installed and run via npx:
 **Objective**: Verify package.json is correctly configured for npx installation
 
 **Results**:
-- ✓ Package name: `@kiro/firebase-power`
+- ✓ Package name: `@khuepm/firebase-kiro-power`
 - ✓ Binary configuration: `"firebase-power": "./dist/index.js"`
 - ✓ Files array includes: dist, README.md, LICENSE, POWER.md
 - ✓ All dependencies preserved
@@ -128,7 +128,7 @@ SERVICE_ACCOUNT_KEY_PATH=./test-service-account.json firebase-power
 1. **NPM Registry**: Package not yet published to npm registry
    - Used `npm link` to simulate npx installation
    - Verified package structure is correct for publication
-   - Actual `npx @kiro/firebase-power` requires npm publication
+   - Actual `npx @khuepm/firebase-kiro-power` requires npm publication
 
 2. **Firebase Project**: No real Firebase project available for testing
    - Created test service account with dummy credentials
@@ -197,7 +197,7 @@ Task 10.1 has been **successfully completed** with the following validations:
 To complete full npx installation testing:
 
 1. **Publish to NPM**: `npm publish`
-2. **Test actual npx**: `npx @kiro/firebase-power`
+2. **Test actual npx**: `npx @khuepm/firebase-kiro-power`
 3. **Test with real Firebase project**: Use actual service account
 4. **Verify in Kiro IDE**: Install via Powers panel
 
@@ -218,7 +218,7 @@ The package is **ready for npm publication** and npx installation. All structura
 **Requirement 7.2**: "THE System SHALL produce valid NPM package artifacts"
 
 ✅ **VALIDATED**:
-- Package name: @kiro/firebase-power
+- Package name: @khuepm/firebase-kiro-power
 - Binary executable: firebase-power
 - All files included: dist/, POWER.md, README.md, LICENSE
 - Package structure valid for npm publication
