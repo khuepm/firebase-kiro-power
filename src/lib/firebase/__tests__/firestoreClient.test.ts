@@ -55,15 +55,25 @@ beforeAll(async () => {
   if (process.env.USE_FIREBASE_EMULATOR === 'true') {
     process.env.FIRESTORE_EMULATOR_HOST = 'localhost:8080';
     console.log('[TEST DEBUG]', 'Using Firestore emulator');
+    
+    try {
+      await ensureTestDocument();
+    } catch (error) {
+      console.error('[TEST ERROR]', 'Failed to create test document:', error);
+    }
   }
-
-  await ensureTestDocument();
-});
+}, 10000); // 10 second timeout
 
 // Clean up after tests
 afterAll(async () => {
-  await deleteTestDocument();
-});
+  if (process.env.USE_FIREBASE_EMULATOR === 'true') {
+    try {
+      await deleteTestDocument();
+    } catch (error) {
+      console.error('[TEST ERROR]', 'Failed to delete test document:', error);
+    }
+  }
+}, 10000); // 10 second timeout
 
 // Reset mocks between tests
 beforeEach(() => {

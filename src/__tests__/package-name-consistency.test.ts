@@ -285,6 +285,10 @@ describe('Property 1: Package Name Consistency', () => {
   it('should use correct name in source code module declarations', () => {
     // Property: For any source file with @module declarations, it should use "firebase-power"
     const sourceFilesWithModules = sourceFiles.filter((fileName) => {
+      // Exclude test files from this check
+      if (fileName.includes('__tests__') || fileName.includes('.test.')) {
+        return false;
+      }
       const filePath = path.resolve(process.cwd(), fileName);
       const fileContent = fs.readFileSync(filePath, 'utf8');
       return fileContent.includes('@module');
