@@ -14,7 +14,18 @@
 - **Storage**: File management with robust upload capabilities
 - **Authentication**: User management and verification
 
-This Power works with Kiro IDE and other MCP client applications such as [Claude Desktop](https://claude.ai/download), [Augment Code](https://docs.augmentcode.com/setup-augment/mcp), [VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), and [Cursor](https://www.cursor.com/).
+### What is a Kiro Power?
+
+A Kiro Power is a packaged bundle of MCP (Model Context Protocol) servers, documentation, and configuration that extends Kiro IDE's capabilities. Firebase Power brings enterprise-grade Firebase functionality directly into your AI assistant's toolkit, making it easy to manage databases, files, and users through natural language interactions.
+
+### Compatibility
+
+This Power works seamlessly with:
+- **Kiro IDE** - One-click installation through the Powers panel
+- **Claude Desktop** - Via MCP configuration
+- **VS Code / Augment** - Via MCP extension
+- **Cursor** - Via MCP configuration
+- **Other MCP Clients** - Any MCP-compliant application
 
 For complete documentation on all features, configuration options, and detailed usage examples, see **[POWER.md](./POWER.md)**.
 
@@ -69,7 +80,7 @@ Firebase Power can be installed manually or at runtime via npx (recommended). Ho
        "command": "npx",
        "args": [
          "-y",
-         "@kiro/firebase-power"
+         "@khuepm/firebase-kiro-power"
        ],
        "env": {
          "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/serviceAccountKey.json",
@@ -222,7 +233,7 @@ To run the server with HTTP transport:
 MCP_TRANSPORT=http MCP_HTTP_PORT=3000 node dist/index.js
 
 # Or with npx
-MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @kiro/firebase-power
+MCP_TRANSPORT=http MCP_HTTP_PORT=3000 npx @khuepm/firebase-kiro-power
 ```
 
 ### Client Configuration for HTTP
@@ -273,10 +284,10 @@ To help diagnose issues, you can enable file logging:
 
 ```bash
 # Log to default location (~/.firebase-power/debug.log)
-DEBUG_LOG_FILE=true npx @kiro/firebase-power
+DEBUG_LOG_FILE=true npx @khuepm/firebase-kiro-power
 
 # Log to a custom location
-DEBUG_LOG_FILE=/path/to/custom/debug.log npx @kiro/firebase-power
+DEBUG_LOG_FILE=/path/to/custom/debug.log npx @khuepm/firebase-kiro-power
 ```
 
 You can also enable logging in your MCP client configuration:
@@ -285,7 +296,7 @@ You can also enable logging in your MCP client configuration:
 {
   "firebase-power": {
     "command": "npx",
-    "args": ["-y", "@kiro/firebase-power"],
+    "args": ["-y", "@khuepm/firebase-kiro-power"],
     "env": {
       "SERVICE_ACCOUNT_KEY_PATH": "/path/to/serviceAccountKey.json",
       "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app",

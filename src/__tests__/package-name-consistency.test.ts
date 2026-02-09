@@ -10,17 +10,17 @@ import { glob } from 'glob';
  * **Validates: Requirements 1.1, 1.2, 8.1, 8.2**
  *
  * For any file in the codebase that references the package name, the reference
- * should use "@kiro/firebase-power" and not "@khuepm/firebase-kiro-power"
+ * should use "@khuepm/firebase-kiro-power" consistently
  */
 
 describe('Property 1: Package Name Consistency', () => {
   // Define the correct package name
-  const CORRECT_PACKAGE_NAME = '@kiro/firebase-power';
+  const CORRECT_PACKAGE_NAME = '@khuepm/firebase-kiro-power';
   
   // Define old/incorrect package names that should not appear
   const OLD_PACKAGE_NAMES = [
-    '@khuepm/firebase-kiro-power',
-    '@khuepm/firebase-kiro-power',
+    '@kiro/firebase-power',
+    'firebase-mcp-server',
   ];
 
   // Files that should contain package name references
@@ -183,7 +183,7 @@ describe('Property 1: Package Name Consistency', () => {
           const fileContent = fs.readFileSync(filePath, 'utf8');
 
           // Find all npx commands
-          const npxCommandRegex = /npx\s+(?:-y\s+)?(@[^\s"']+)/g;
+          const npxCommandRegex = /npx\s+(?:-y\s+)?(@[^\s"'`]+)/g;
           const matches = [...fileContent.matchAll(npxCommandRegex)];
 
           // For any npx command that references a firebase package

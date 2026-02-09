@@ -17,13 +17,13 @@ describe('Package.json Kiro Power Metadata', () => {
   const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
 
   describe('Package Name', () => {
-    it('should have package name "@kiro/firebase-power"', () => {
-      expect(packageJson.name).toBe('@kiro/firebase-power');
+    it('should have package name "@khuepm/firebase-kiro-power"', () => {
+      expect(packageJson.name).toBe('@khuepm/firebase-kiro-power');
     });
 
-    it('should not contain the old package name', () => {
-      expect(packageJson.name).not.toBe('@khuepm/firebase-kiro-power');
-      expect(packageJson.name).not.toBe('@khuepm/firebase-kiro-power');
+    it('should not contain incorrect package name variations', () => {
+      expect(packageJson.name).not.toBe('@kiro/firebase-power');
+      expect(packageJson.name).not.toBe('firebase-mcp-server');
     });
   });
 
@@ -165,8 +165,8 @@ describe('Package.json Kiro Power Metadata', () => {
 
   describe('Kiro Power Branding Consistency', () => {
     it('should have consistent Kiro Power branding across name, description, and keywords', () => {
-      // Package name should indicate it's a Kiro Power
-      expect(packageJson.name).toMatch(/@kiro\//);
+      // Package name should be @khuepm/firebase-kiro-power
+      expect(packageJson.name).toBe('@khuepm/firebase-kiro-power');
 
       // Description should mention Kiro Power
       expect(packageJson.description).toContain('Kiro Power');

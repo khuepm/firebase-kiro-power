@@ -93,7 +93,7 @@ describe('Integration: Installation via npx', () => {
     expect(packageJson.bin['firebase-power']).toBe('./dist/index.js');
     
     // Verify package name
-    expect(packageJson.name).toBe('@kiro/firebase-power');
+    expect(packageJson.name).toBe('@khuepm/firebase-kiro-power');
     
     // Verify POWER.md is in files array
     expect(packageJson.files).toContain('POWER.md');

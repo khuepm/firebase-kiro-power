@@ -11,6 +11,6 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@kiro/firebase-power": "file:../kiro-firebase-power-1.4.9.tgz"
+    "@khuepm/firebase-kiro-power": "file:../khuepm-firebase-kiro-power-1.4.9.tgz"
   }
 }

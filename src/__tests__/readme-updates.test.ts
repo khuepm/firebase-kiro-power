@@ -121,9 +121,9 @@ describe('README.md Kiro Power Updates', () => {
       expect(readmeContent).toMatch(otherClientsRegex);
     });
 
-    it('should use @kiro/firebase-power package name in npx configuration', () => {
-      // Should use the new package name
-      expect(readmeContent).toContain('@kiro/firebase-power');
+    it('should use @khuepm/firebase-kiro-power package name in npx configuration', () => {
+      // Should use the correct package name
+      expect(readmeContent).toContain('@khuepm/firebase-kiro-power');
     });
 
     it('should update configuration key to "firebase-power"', () => {
@@ -132,10 +132,10 @@ describe('README.md Kiro Power Updates', () => {
       expect(readmeContent).toMatch(configRegex);
     });
 
-    it('should not contain old package name references', () => {
-      // Should not reference old package names
-      expect(readmeContent).not.toContain('@khuepm/firebase-kiro-power');
-      expect(readmeContent).not.toContain('@khuepm/firebase-kiro-power');
+    it('should not contain incorrect package name references', () => {
+      // Should not reference incorrect package names
+      expect(readmeContent).not.toContain('@kiro/firebase-power');
+      expect(readmeContent).not.toContain('firebase-mcp-server');
     });
   });
 
@@ -232,15 +232,15 @@ describe('README.md Kiro Power Updates', () => {
   });
 
   describe('Configuration Examples', () => {
-    it('should update HTTP transport npx command to use new package name', () => {
-      // Should use @kiro/firebase-power in HTTP transport examples
-      const httpTransportRegex = /MCP_TRANSPORT=http.*npx @kiro\/firebase-power/;
+    it('should update HTTP transport npx command to use correct package name', () => {
+      // Should use @khuepm/firebase-kiro-power in HTTP transport examples
+      const httpTransportRegex = /MCP_TRANSPORT=http.*npx @khuepm\/firebase-kiro-power/;
       expect(readmeContent).toMatch(httpTransportRegex);
     });
 
-    it('should update debug logging npx command to use new package name', () => {
-      // Should use @kiro/firebase-power in debug logging examples
-      const debugLogRegex = /DEBUG_LOG_FILE=true npx @kiro\/firebase-power/;
+    it('should update debug logging npx command to use correct package name', () => {
+      // Should use @khuepm/firebase-kiro-power in debug logging examples
+      const debugLogRegex = /DEBUG_LOG_FILE=true npx @khuepm\/firebase-kiro-power/;
       expect(readmeContent).toMatch(debugLogRegex);
     });
 
@@ -266,8 +266,8 @@ describe('README.md Kiro Power Updates', () => {
     });
 
     it('should maintain consistent package name references', () => {
-      // All package references should use @kiro/firebase-power
-      const packageNameMatches = readmeContent.match(/@kiro\/firebase-power/g);
+      // All package references should use @khuepm/firebase-kiro-power
+      const packageNameMatches = readmeContent.match(/@khuepm\/firebase-kiro-power/g);
       expect(packageNameMatches).not.toBeNull();
       expect(packageNameMatches!.length).toBeGreaterThanOrEqual(5);
     });

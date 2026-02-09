@@ -40,7 +40,7 @@ Add this configuration to your chosen client's settings file:
         "command": "npx",
         "args": [
             "-y",
-            "@kiro/firebase-power"
+            "@khuepm/firebase-kiro-power"
         ],
         "env": {
             "SERVICE_ACCOUNT_KEY_PATH": "/path/to/your/serviceAccountKey.json",

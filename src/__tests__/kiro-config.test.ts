@@ -341,7 +341,7 @@ describe('Kiro Configuration Compatibility', () => {
         //   "mcpServers": {
         //     "firebase-power": {
         //       "command": "npx",
-        //       "args": ["-y", "@kiro/firebase-power"],
+        //       "args": ["-y", "@khuepm/firebase-kiro-power"],
         //       "env": {
         //         "SERVICE_ACCOUNT_KEY_PATH": "/absolute/path/to/your/serviceAccountKey.json",
         //         "FIREBASE_STORAGE_BUCKET": "your-project-id.firebasestorage.app"

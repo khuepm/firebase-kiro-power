@@ -254,7 +254,6 @@ describe('Property: README Documentation Section Preservation', () => {
     const expectedLinks = [
       'firebase.google.com',
       'github.com/modelcontextprotocol',
-      'claude.ai',
     ];
 
     fc.assert(

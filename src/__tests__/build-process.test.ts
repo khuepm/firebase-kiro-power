@@ -245,7 +245,7 @@ describe('Build Process Verification', () => {
         encoding: 'utf8',
       });
 
-      expect(packOutput).toContain('@kiro/firebase-power');
+      expect(packOutput).toContain('@khuepm/firebase-kiro-power');
     });
   });
 
@@ -267,7 +267,7 @@ describe('Build Process Verification', () => {
 
   describe('Package Metadata for Distribution', () => {
     it('should have correct package name', () => {
-      expect(packageJson.name).toBe('@kiro/firebase-power');
+      expect(packageJson.name).toBe('@khuepm/firebase-kiro-power');
     });
 
     it('should have version defined', () => {
