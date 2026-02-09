@@ -116,7 +116,7 @@ describe('Integration: Documentation Accuracy', () => {
     const packageJson = require('../../package.json');
 
     // Verify package name
-    expect(packageJson.name).toBe('@kiro/firebase-power');
+    expect(packageJson.name).toBe('@khuepm/firebase-kiro-power');
 
     // Verify description mentions Kiro Power
     expect(packageJson.description).toContain('Kiro Power');

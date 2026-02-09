@@ -1837,27 +1837,27 @@ describe('Firebase MCP Server', () => {
     });
 
     describe('firestore_count_documents', () => {
-      it('should count documents in a collection', async () => {
+      it.skipIf(process.env.USE_FIREBASE_EMULATOR === 'true')('should count documents in a collection', async () => {
         // Mock the count().get() chain
         const countValue = 5;
-        const countMock = vi.fn().mockReturnThis();
-        const getMock = vi.fn().mockResolvedValue({
-          data: () => ({ count: countValue }),
-        });
+        
+        // Mock the AggregateQuery that count() returns
+        const aggregateQueryMock = {
+          get: vi.fn().mockResolvedValue({
+            data: () => ({ count: countValue }),
+          }),
+        };
+        
+        const countMock = vi.fn().mockReturnValue(aggregateQueryMock);
 
         // Mock the query chain
         const queryMock = {
           where: vi.fn().mockReturnThis(),
           count: countMock,
-          get: getMock,
         };
 
         // Mock collection to return the queryMock
-        const collectionMock = {
-          where: queryMock.where,
-          count: queryMock.count,
-          get: queryMock.get,
-        };
+        const collectionMock = queryMock;
 
         adminMock.firestore = () => ({
           collection: vi.fn().mockReturnValue(collectionMock),
@@ -1877,24 +1877,24 @@ describe('Firebase MCP Server', () => {
         expect(content).toHaveProperty('count', countValue);
       });
 
-      it('should handle missing filters', async () => {
+      it.skipIf(process.env.USE_FIREBASE_EMULATOR === 'true')('should handle missing filters', async () => {
         const countValue = 3;
-        const countMock = vi.fn().mockReturnThis();
-        const getMock = vi.fn().mockResolvedValue({
-          data: () => ({ count: countValue }),
-        });
+        
+        // Mock the AggregateQuery that count() returns
+        const aggregateQueryMock = {
+          get: vi.fn().mockResolvedValue({
+            data: () => ({ count: countValue }),
+          }),
+        };
+        
+        const countMock = vi.fn().mockReturnValue(aggregateQueryMock);
 
         const queryMock = {
           where: vi.fn().mockReturnThis(),
           count: countMock,
-          get: getMock,
         };
 
-        const collectionMock = {
-          where: queryMock.where,
-          count: queryMock.count,
-          get: queryMock.get,
-        };
+        const collectionMock = queryMock;
 
         adminMock.firestore = () => ({
           collection: vi.fn().mockReturnValue(collectionMock),

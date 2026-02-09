@@ -10,8 +10,8 @@ echo ""
 
 # Test 1: Verify package.json configuration
 echo "Test 1: Verifying package.json configuration..."
-if grep -q '"name": "@kiro/firebase-power"' package.json; then
-    echo "✓ Package name is correct: @kiro/firebase-power"
+if grep -q '"name": "@khuepm/firebase-kiro-power"' package.json; then
+    echo "✓ Package name is correct: @khuepm/firebase-kiro-power"
 else
     echo "✗ Package name is incorrect"
     exit 1
@@ -118,5 +118,5 @@ echo "- Server starts and validates configuration correctly"
 echo ""
 echo "Note: Full end-to-end testing requires:"
 echo "  1. Publishing to npm registry"
-echo "  2. Running: npx @kiro/firebase-power"
+echo "  2. Running: npx @khuepm/firebase-kiro-power"
 echo "  3. Testing with a real Firebase project"

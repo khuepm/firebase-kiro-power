@@ -233,7 +233,7 @@ describe('Property 7: Build Artifact Completeness', () => {
 
   it('should verify package metadata is correct for distribution', () => {
     // Verify package name
-    expect(packageJson.name).toBe('@kiro/firebase-power');
+    expect(packageJson.name).toBe('@khuepm/firebase-kiro-power');
 
     // Verify main entry point
     expect(packageJson.main).toBe('dist/index.js');
@@ -318,5 +318,151 @@ describe('Property 7: Build Artifact Completeness', () => {
     expect(content).toContain('# Firebase Power');
     expect(content).toContain('## Installation');
     expect(content).toContain('## Configuration');
+  });
+
+  it('should verify build artifact completeness property with 100+ iterations', () => {
+    // Property: For any combination of file checks, all required artifacts should exist
+    // This test runs 100+ iterations to thoroughly validate the property
+    fc.assert(
+      fc.property(
+        fc.record({
+          checkRootFiles: fc.boolean(),
+          checkDistFiles: fc.boolean(),
+          checkPackageJson: fc.boolean(),
+          checkExecutable: fc.boolean(),
+        }),
+        (checks) => {
+          let allChecksPass = true;
+
+          // Check root files if requested
+          if (checks.checkRootFiles) {
+            requiredFiles.forEach((file) => {
+              const filePath = path.join(rootDir, file);
+              if (!fs.existsSync(filePath)) {
+                allChecksPass = false;
+              }
+            });
+          }
+
+          // Check dist files if requested
+          if (checks.checkDistFiles) {
+            requiredDistFiles.forEach((file) => {
+              const filePath = path.join(rootDir, file);
+              if (!fs.existsSync(filePath)) {
+                allChecksPass = false;
+              }
+            });
+          }
+
+          // Check package.json metadata if requested
+          if (checks.checkPackageJson) {
+            if (packageJson.name !== '@khuepm/firebase-kiro-power') {
+              allChecksPass = false;
+            }
+            if (!packageJson.files || !packageJson.files.includes('dist')) {
+              allChecksPass = false;
+            }
+          }
+
+          // Check executable configuration if requested
+          if (checks.checkExecutable) {
+            if (!packageJson.bin || !packageJson.bin['firebase-power']) {
+              allChecksPass = false;
+            }
+            const indexPath = path.join(rootDir, 'dist/index.js');
+            if (fs.existsSync(indexPath)) {
+              const content = fs.readFileSync(indexPath, 'utf8');
+              const firstLine = content.split('\n')[0];
+              if (firstLine !== '#!/usr/bin/env node') {
+                allChecksPass = false;
+              }
+            }
+          }
+
+          expect(allChecksPass).toBe(true);
+          return true;
+        }
+      ),
+      { numRuns: 100 }
+    );
+  });
+
+  it('should verify all dist files have corresponding type definitions with 100+ iterations', () => {
+    // Property: For any JavaScript file in dist, a corresponding .d.ts file should exist
+    // Generate random subsets of JS files to check
+    const allJsFiles = [
+      'dist/index.js',
+      'dist/config.js',
+      'dist/lib/firebase/firestoreClient.js',
+      'dist/lib/firebase/storageClient.js',
+      'dist/lib/firebase/authClient.js',
+      'dist/lib/firebase/firebaseConfig.js',
+      'dist/transports/index.js',
+      'dist/transports/http.js',
+      'dist/utils/logger.js',
+    ];
+
+    fc.assert(
+      fc.property(
+        fc.subarray(allJsFiles, { minLength: 1 }),
+        (jsFilesToCheck) => {
+          // For each JS file, verify the corresponding .d.ts file exists
+          for (const jsFile of jsFilesToCheck) {
+            const dtsFile = jsFile.replace('.js', '.d.ts');
+            const dtsPath = path.join(rootDir, dtsFile);
+            expect(fs.existsSync(dtsPath)).toBe(true);
+          }
+          return true;
+        }
+      ),
+      { numRuns: 100 }
+    );
+  });
+
+  it('should verify package structure integrity across multiple validation runs', () => {
+    // Property: Package structure should be consistent across multiple checks
+    // This validates that the build artifacts are stable and complete
+    fc.assert(
+      fc.property(
+        fc.integer({ min: 1, max: 10 }),
+        (iteration) => {
+          // Verify core package structure elements
+          const checks = [
+            // Check package.json exists and is valid JSON
+            () => {
+              const pkg = JSON.parse(fs.readFileSync(packageJsonPath, 'utf8'));
+              return pkg.name === '@khuepm/firebase-kiro-power';
+            },
+            // Check dist directory exists
+            () => fs.existsSync(path.join(rootDir, 'dist')),
+            // Check POWER.md exists and has content
+            () => {
+              const powerMdPath = path.join(rootDir, 'POWER.md');
+              return fs.existsSync(powerMdPath) && fs.statSync(powerMdPath).size > 0;
+            },
+            // Check README.md exists and has content
+            () => {
+              const readmePath = path.join(rootDir, 'README.md');
+              return fs.existsSync(readmePath) && fs.statSync(readmePath).size > 0;
+            },
+            // Check LICENSE exists
+            () => fs.existsSync(path.join(rootDir, 'LICENSE')),
+            // Check main entry point exists
+            () => fs.existsSync(path.join(rootDir, packageJson.main)),
+            // Check types entry point exists
+            () => fs.existsSync(path.join(rootDir, packageJson.types)),
+            // Check bin executable exists
+            () => fs.existsSync(path.join(rootDir, packageJson.bin['firebase-power'])),
+          ];
+
+          // All checks should pass
+          const allPass = checks.every((check) => check());
+          expect(allPass).toBe(true);
+
+          return true;
+        }
+      ),
+      { numRuns: 100 }
+    );
   });
 });

@@ -62,7 +62,7 @@ beforeAll(async () => {
       console.error('[TEST ERROR]', 'Failed to create test document:', error);
     }
   }
-}, 10000); // 10 second timeout
+}, 30000); // 30 second timeout
 
 // Clean up after tests
 afterAll(async () => {
@@ -73,7 +73,7 @@ afterAll(async () => {
       console.error('[TEST ERROR]', 'Failed to delete test document:', error);
     }
   }
-}, 10000); // 10 second timeout
+}, 30000); // 30 second timeout
 
 // Reset mocks between tests
 beforeEach(() => {

@@ -164,7 +164,7 @@ vi.mock('firebase-admin', () => ({
 // Mock the config module
 vi.mock('../config.js', () => ({
   default: {
-    name: '@kiro/firebase-power',
+    name: '@khuepm/firebase-kiro-power',
     version: '1.4.9',
     transport: 'stdio',
     serviceAccountKeyPath: '/mock/path/to/serviceAccountKey.json',
