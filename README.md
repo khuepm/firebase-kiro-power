@@ -14,7 +14,18 @@
 - **Storage**: File management with robust upload capabilities
 - **Authentication**: User management and verification
 
-This Power works with Kiro IDE and other MCP client applications such as [Claude Desktop](https://claude.ai/download), [Augment Code](https://docs.augmentcode.com/setup-augment/mcp), [VS Code](https://code.visualstudio.com/docs/copilot/chat/mcp-servers), and [Cursor](https://www.cursor.com/).
+### What is a Kiro Power?
+
+A Kiro Power is a packaged bundle of MCP (Model Context Protocol) servers, documentation, and configuration that extends Kiro IDE's capabilities. Firebase Power brings enterprise-grade Firebase functionality directly into your AI assistant's toolkit, making it easy to manage databases, files, and users through natural language interactions.
+
+### Compatibility
+
+This Power works seamlessly with:
+- **Kiro IDE** - One-click installation through the Powers panel
+- **Claude Desktop** - Via MCP configuration
+- **VS Code / Augment** - Via MCP extension
+- **Cursor** - Via MCP configuration
+- **Other MCP Clients** - Any MCP-compliant application
 
 For complete documentation on all features, configuration options, and detailed usage examples, see **[POWER.md](./POWER.md)**.
 
