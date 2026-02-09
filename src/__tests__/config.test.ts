@@ -160,7 +160,7 @@ describe('Config Module', () => {
             host: 'localhost',
             path: '/mcp',
           },
-          name: 'firebase-kiro-power',
+          name: 'firebase-power',
         });
 
         // Verify version is a string
@@ -197,7 +197,7 @@ describe('Config Module', () => {
           path: '/api/mcp',
         },
         version: expect.any(String),
-        name: 'firebase-kiro-power',
+        name: 'firebase-power',
       });
     });
 

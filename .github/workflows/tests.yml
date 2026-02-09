@@ -255,7 +255,7 @@ jobs:
     - name: Upload coverage reports to Codecov
       uses: codecov/codecov-action@v5
       with:
-        slug: khuepm/firebase-kiro-power  
+        slug: khuepm/firebase-power  
 
   publish:
     name: Publish to npm

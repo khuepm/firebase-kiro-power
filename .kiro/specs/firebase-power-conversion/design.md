@@ -31,7 +31,7 @@ The Kiro Power architecture will maintain the same internal structure but add:
 1. **Minimal Code Changes**: The core functionality will remain unchanged to ensure stability
 2. **Additive Approach**: New files (POWER.md) will be added rather than replacing existing documentation
 3. **Backward Compatibility**: The Power will work with existing MCP clients and configurations
-4. **Name Selection**: The new package name will be "@kiro/firebase-power" to clearly indicate it's a Kiro Power
+4. **Name Retention**: The package name will remain "@khuepm/firebase-kiro-power" to maintain ownership and control
 
 ## Components and Interfaces
 
@@ -40,16 +40,16 @@ The Kiro Power architecture will maintain the same internal structure but add:
 **Purpose**: Update package.json with new Kiro Power identity
 
 **Changes Required**:
-- Package name: `@khuepm/firebase-kiro-power` → `@kiro/firebase-power`
-- Description: Add "Kiro Power" designation
-- Keywords: Add "kiro", "kiro-power" to existing keywords
-- Repository URLs: Update if needed
+- Package name: Keep as `@khuepm/firebase-kiro-power` (no change)
+- Description: Already includes "Kiro Power" designation
+- Keywords: Already includes "kiro", "kiro-power"
+- Repository URLs: Maintain current URLs
 - Maintain all existing dependencies and versions
 
 **Interface** (package.json structure):
 ```json
 {
-  "name": "@kiro/firebase-power",
+  "name": "@khuepm/firebase-kiro-power",
   "version": "1.4.9",
   "description": "Firebase Kiro Power for interacting with Firebase services through the Model Context Protocol",
   "keywords": [
@@ -181,7 +181,7 @@ For complete documentation, see [POWER.md](./POWER.md)
 {
   "firebase-power": {
     "command": "npx",
-    "args": ["-y", "@kiro/firebase-power"],
+    "args": ["-y", "@khuepm/firebase-kiro-power"],
     "env": {
       "SERVICE_ACCOUNT_KEY_PATH": "/path/to/serviceAccountKey.json",
       "FIREBASE_STORAGE_BUCKET": "project-id.firebasestorage.app"
@@ -211,7 +211,7 @@ For complete documentation, see [POWER.md](./POWER.md)
 ### Package Configuration Model
 ```typescript
 interface PackageConfig {
-  name: string;              // "@kiro/firebase-power"
+  name: string;              // "@khuepm/firebase-kiro-power"
   version: string;           // Semantic version
   description: string;       // Package description
   main: string;              // Entry point: "dist/index.js"
@@ -290,7 +290,7 @@ interface Example {
 *A property is a characteristic or behavior that should hold true across all valid executions of a system—essentially, a formal statement about what the system should do. Properties serve as the bridge between human-readable specifications and machine-verifiable correctness guarantees.*
 
 ### Property 1: Package Name Consistency
-*For any* file in the codebase that references the package name, the reference should use "@kiro/firebase-power" and not "@khuepm/firebase-kiro-power"
+*For any* file in the codebase that references the package name, the reference should use "@khuepm/firebase-kiro-power" consistently
 **Validates: Requirements 1.1, 1.2, 8.1, 8.2**
 
 ### Property 2: Functionality Preservation
@@ -450,10 +450,10 @@ describe('MCP Tool Functionality Preservation', () => {
 ## Implementation Notes
 
 ### Phase 1: Package Restructuring
-1. Update package.json with new name and metadata
-2. Update all internal references to package name
-3. Update repository URLs if needed
-4. Verify build process works with new name
+1. Verify package.json has correct metadata (name already correct)
+2. Ensure all internal references use consistent package name
+3. Verify repository URLs are correct
+4. Verify build process works correctly
 
 ### Phase 2: Documentation Creation
 1. Create POWER.md with complete documentation
@@ -474,14 +474,14 @@ describe('MCP Tool Functionality Preservation', () => {
 4. Verify configuration compatibility
 
 ### Phase 5: Build and Distribution
-1. Build NPM package with new name
+1. Build NPM package with current name
 2. Verify all files included in distribution
 3. Test installation via npx
 4. Publish to NPM registry
 
 ### Backward Compatibility Considerations
 
-- Old package name (@khuepm/firebase-kiro-power) will remain available
-- Users can migrate gradually
+- Package name remains @khuepm/firebase-kiro-power (no migration needed)
 - Configuration format remains compatible
 - No breaking changes to MCP tool interfaces
+- Existing users continue without any changes

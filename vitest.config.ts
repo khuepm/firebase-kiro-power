@@ -5,6 +5,8 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     setupFiles: ['./vitest.setup.ts'],
+    testTimeout: 60000, // 60 seconds for property-based tests
+    hookTimeout: 60000, // 60 seconds for hooks
     include: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
     exclude: [
       '**/node_modules/**',

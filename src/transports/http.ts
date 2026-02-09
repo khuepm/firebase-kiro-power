@@ -4,7 +4,7 @@
  * This module implements the StreamableHTTPServerTransport for the Firebase MCP server.
  * It provides an Express server that handles MCP protocol requests over HTTP.
  *
- * @module firebase-kiro-power/transports/http
+ * @module firebase-power/transports/http
  */
 
 import express from 'express';

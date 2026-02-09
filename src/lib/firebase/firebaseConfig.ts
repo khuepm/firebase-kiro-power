@@ -10,7 +10,7 @@
  * - SERVICE_ACCOUNT_KEY_PATH: Path to the Firebase service account key JSON file (required)
  * - FIREBASE_STORAGE_BUCKET: Custom bucket name for Firebase Storage (optional)
  *
- * @module firebase-kiro-power/config
+ * @module firebase-power/config
  */
 
 import * as admin from 'firebase-admin';

@@ -36,7 +36,7 @@ Add this configuration to your chosen client's settings file:
 
 ```json
 {
-    "firebase-kiro-power": {
+    "firebase-power": {
         "command": "npx",
         "args": [
             "-y",

@@ -4,7 +4,7 @@
  * This module provides functions for interacting with Firebase Authentication.
  * It includes operations for user management and verification.
  *
- * @module firebase-kiro-power/auth
+ * @module firebase-power/auth
  */
 
 import * as admin from 'firebase-admin';

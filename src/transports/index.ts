@@ -4,7 +4,7 @@
  * This module provides factory functions for creating different transport types.
  * It centralizes transport initialization logic and provides a consistent interface.
  *
- * @module firebase-kiro-power/transports
+ * @module firebase-power/transports
  */
 
 import type { Server } from '@modelcontextprotocol/sdk/server/index.js';

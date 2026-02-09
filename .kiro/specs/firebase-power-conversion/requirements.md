@@ -23,7 +23,7 @@ This document specifies the requirements for converting the existing Firebase MC
 
 #### Acceptance Criteria
 
-1. THE System SHALL rename the package from "@khuepm/firebase-kiro-power" to a new Kiro Power compatible name
+1. THE System SHALL keep the package name as "@khuepm/firebase-kiro-power" (no renaming required)
 2. THE System SHALL update all package metadata to reflect the new Kiro Power branding
 3. THE System SHALL maintain the existing NPM package structure for compatibility
 4. THE System SHALL preserve all existing dependencies and their versions
@@ -112,8 +112,8 @@ This document specifies the requirements for converting the existing Firebase MC
 
 #### Acceptance Criteria
 
-1. THE System SHALL use a consistent new name throughout all files
-2. THE System SHALL update all references from "firebase-kiro-power" to the new Power name
+1. THE System SHALL use the consistent name "@khuepm/firebase-kiro-power" throughout all files
+2. THE System SHALL maintain all references to "@khuepm/firebase-kiro-power" consistently
 3. THE System SHALL update logo and assets if needed
 4. THE System SHALL maintain "Firebase" in the name to indicate functionality
 5. THE System SHALL follow Kiro Power naming conventions
